@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121d2a">
+<meta name="description" content="صداخونه؛ دکمه‌های صوتی کوتاه.">
+<meta property="og:title" content="صداخونه">
+<meta property="og:description" content="صداها رو پخش کن و به اشتراک بذار.">
+<title>صداخونه</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#121e2b;--text:#f4f7fb;--muted:#a9b7c7;--line:#344454;--pink:#ec536c;--cyan:#25b9d0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Vazirmatn,system-ui,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.topbar{width:min(1440px,calc(100% - 36px));margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #ffffff13}
+.brand{color:#fff;text-decoration:none;font-weight:900;font-size:22px;white-space:nowrap}
+.tools{display:flex;align-items:center;gap:10px}
+.search{width:min(340px,40vw);height:40px;border:1px solid #ffffff24;border-radius:9px;background:#ffffff0a;display:flex;align-items:center;padding:0 12px;gap:8px}
+.search span{font-size:20px;color:#9fc6d8}
+.search input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:#fff;font-size:12px}
+.btn{border:0;border-radius:9px;padding:10px 15px;font-size:12px;font-weight:800}
+.primary{background:#26bbd0;color:#08232d}
+.icon-btn{width:39px;height:39px;background:#ffffff12;color:#fff;border:1px solid #ffffff20;border-radius:9px;font-size:19px}
+main{width:min(1440px,calc(100% - 36px));margin:24px auto 60px}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:0 0 17px}
+.heading h1{margin:0;font-size:23px;font-weight:900}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid #ffffff20;background:#ffffff08;color:#d7e0e9;border-radius:7px;padding:7px 12px;font-size:11px}
+.chip.active{background:#20a9c2;color:#071e29;border-color:#20a9c2;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));column-gap:13px;row-gap:27px}
+.sound{min-width:0;display:flex;align-items:center;flex-direction:column;text-align:center}
+.sound-button{--shine:#fff9;--base:#278acb;--deep:#123c72;position:relative;width:clamp(62px,6.8vw,88px);aspect-ratio:1;border:2px solid #0b1420;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:900;text-shadow:0 2px 4px #0008;background:radial-gradient(ellipse at 35% 22%,#ffffffaa 0 3%,transparent 19%),radial-gradient(circle at 50% 38%,var(--base) 0 43%,var(--deep) 76%,#080f18 100%);box-shadow:inset 0 2px 4px #fff8,inset 0 -5px 8px #000a,0 3px 0 #060c13,0 7px 12px #0006;transition:transform .13s,filter .13s}
+.sound-button:before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid #ffffff55;box-shadow:inset 0 2px 5px #ffffff50,inset 0 -4px 6px #0005}
+.sound-button:after{content:"";position:absolute;left:21%;top:10%;width:58%;height:27%;border-radius:50%;background:linear-gradient(#ffffff80,#ffffff08);filter:blur(1px)}
+.sound-button:hover{transform:translateY(-3px) scale(1.035);filter:brightness(1.12)}
+.sound-button:active,.sound-button.playing{transform:scale(.94);filter:brightness(1.2)}
+.sound:nth-child(9n+1) .sound-button{--base:#a65a20;--deep:#572c0d}
+.sound:nth-child(9n+2) .sound-button{--base:#2fca25;--deep:#13590d}
+.sound:nth-child(9n+3) .sound-button{--base:#9a8452;--deep:#55472b}
+.sound:nth-child(9n+4) .sound-button{--base:#168eea;--deep:#074878}
+.sound:nth-child(9n+5) .sound-button{--base:#786044;--deep:#3b2b1d}
+.sound:nth-child(9n+6) .sound-button{--base:#f01820;--deep:#79080c}
+.sound:nth-child(9n+7) .sound-button{--base:#ec1b26;--deep:#7f0912}
+.sound:nth-child(9n+8) .sound-button{--base:#db131d;--deep:#72060b}
+.sound:nth-child(9n) .sound-button{--base:#2648ed;--deep:#111b79}
+.sound-name{display:block;width:100%;max-width:145px;margin-top:9px;color:#edf4fb;font-size:12px;line-height:1.55;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere;background:none;border:0;padding:0}
+.sound-actions{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:10px}
+.round-action{width:25px;height:25px;border:0;border-radius:50%;display:grid;place-items:center;color:white;font-size:15px;line-height:1;padding:0}
+.favorite{background:#e84f69}.favorite.active{background:#c92a4c;color:#fff}.share{background:#20b6ce;font-size:13px}
+.empty{padding:45px 15px;text-align:center;color:var(--muted);border:1px dashed #ffffff2a;border-radius:12px}
+.status{margin:25px 0 0;text-align:center;color:#92a6b8;font-size:10px}
+footer{width:min(1440px,calc(100% - 36px));margin:auto;padding:18px 0 25px;border-top:1px solid #ffffff13;display:flex;justify-content:space-between;align-items:center;color:#8fa0b1;font-size:10px}
+.admin-link{border:0;background:none;color:#aab8c7;font-size:10px}
+dialog{border:1px solid #405163;border-radius:14px;padding:0;background:#182838;color:#f4f7fb;width:min(470px,calc(100% - 26px));box-shadow:0 25px 90px #000b}
+dialog::backdrop{background:#050d16ce;backdrop-filter:blur(4px)}
+.modal{padding:23px}
+.modal h2{margin:4px 0 15px;font-size:20px}
+.close{float:left;width:30px;height:30px;border:0;border-radius:7px;background:#ffffff15;color:white;font-size:20px}
+.field{display:grid;gap:6px;margin:12px 0;font-size:11px;color:#d8e2ec}
+.field input,.field select{width:100%;background:#0e1a26;border:1px solid #405163;border-radius:8px;padding:10px;color:white;outline:0}
+.file{display:grid;gap:8px;border:1px dashed #61cbd9;border-radius:9px;padding:14px;margin-top:12px;font-size:11px}
+.file small{color:#9eb1c2;font-size:9px}
+.message{min-height:18px;font-size:10px;color:#80e1be}
+.message.error{color:#ff91a4}
+.modal .btn{width:100%;margin-top:8px}
+.pending{display:grid;gap:8px;margin-top:14px}
+.pending-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px;border:1px solid #405163;border-radius:8px;font-size:11px}
+.pending-item small{display:block;color:#9eb1c2;font-size:9px}
+.pending-actions{display:flex;gap:5px}
+.pending-actions button{border:0;border-radius:6px;padding:6px 9px;font-size:10px}
+.approve{background:#17664c;color:white}.reject{background:#79334a;color:white}
+.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:#263d50;border:1px solid #527187;border-radius:9px;padding:10px 15px;font-size:11px;transition:.2s;z-index:5}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.light{--bg:#edf2f6;--text:#172637;color:var(--text);background:var(--bg)}
+.light .topbar, .light footer{border-color:#0002}
+.light .brand,.light .sound-name{color:#172637}
+.light .search{background:#fff;border-color:#c7d2de}
+.light .search input{color:#172637}
+.light .chip{color:#34485c;background:#fff;border-color:#ccd6e0}
+.light .chip.active{background:#20a9c2;color:#071e29}
+.light .icon-btn{color:#24374a;border-color:#ccd6e0;background:#fff}
+.light .admin-link{color:#526274}
+.light dialog{background:#f8fbfd;color:#172637}
+.light .field{color:#334b60}
+.light .field input,.light .field select{background:#fff;color:#172637;border-color:#cbd5df}
+.light .pending-item{border-color:#cbd5df}
+@media(max-width:1150px){.grid{grid-template-columns:repeat(7,minmax(0,1fr))}}
+@media(max-width:850px){.grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(max-width:620px){.topbar,main,footer{width:calc(100% - 24px)}.topbar{min-height:66px}.brand{font-size:18px}.search{width:min(45vw,220px)}.btn{padding:9px 10px}.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 8px}.sound-name{font-size:11px}.heading h1{font-size:20px}}
+@media(max-width:390px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.search{width:40vw}.sound-button{width:68px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#top">صداخونه</a>
+<div class="tools">
+<label class="search"><span>⌕</span><input id="search" type="search" placeholder="جست‌وجوی صدا…" aria-label="جست‌وجو"></label>
+<button class="icon-btn" id="theme" title="تغییر پوسته" aria-label="تغییر پوسته">◐</button>
+<button class="btn primary" id="openUpload">＋ افزودن صدا</button>
+</div>
+</header>
+<main id="top">
+<div class="heading"><h1>همه‌ی صداها</h1></div>
+<div class="filters" id="filters">
+<button class="chip active" data-filter="همه">همه</button>
+<button class="chip" data-filter="میم">میم</button>
+<button class="chip" data-filter="بازی">بازی</button>
+<button class="chip" data-filter="واکنش">واکنش</button>
+<button class="chip" data-filter="حیوانات">حیوانات</button>
+<button class="chip" data-filter="دیگر">متفرقه</button>
+<button class="chip" data-filter="علاقه‌مندی‌ها">♥ ذخیره‌شده‌ها</button>
+</div>
+<div class="grid" id="grid" aria-live="polite"></div>
+<div class="empty" id="empty" hidden>صدایی پیدا نشد.</div>
+<p class="status" id="apiStatus">در حال بارگذاری…</p>
+</main>
+<footer>
+<span>صداخونه</span>
+<button class="admin-link" id="openAdmin">مدیریت محتوا</button>
+</footer>
+<dialog id="uploadDialog">
+<form class="modal" id="uploadForm">
+<button class="close" type="button" data-close="uploadDialog">×</button>
+<h2>افزودن صدا</h2>
+<label class="field">اسم صدا<input name="title" maxlength="42" required placeholder="اسم کوتاه صدا"></label>
+<label class="field">نام سازنده<input name="author" maxlength="22" placeholder="ناشناس"></label>
+<label class="field">دسته‌بندی<select name="category"><option>میم</option><option>بازی</option><option>واکنش</option><option>حیوانات</option><option>دیگر</option></select></label>
+<label class="file"><b id="fileName">انتخاب فایل صوتی</b><small>MP3 · WAV · OGG · WEBM · M4A · حداکثر ۴۵۰ کیلوبایت</small><input id="file" name="file" type="file" accept="audio/*,.mp3,.wav,.ogg,.webm,.m4a,.aac" required></label>
+<audio id="preview" controls hidden style="width:100%;margin-top:10px"></audio>
+<p class="message" id="uploadMessage" role="status"></p>
+<button class="btn primary" type="submit" id="submit">ارسال</button>
+</form>
+</dialog>
+<dialog id="adminDialog">
+<div class="modal">
+<button class="close" data-close="adminDialog">×</button>
+<h2>مدیریت محتوا</h2>
+<form id="adminForm"><label class="field">کلید مدیر<input id="adminKey" type="password" autocomplete="off" required></label><button class="btn primary" type="submit">ورود</button></form>
+<p class="message" id="adminMessage"></p><div class="pending" id="pending"></div>
+</div>
+</dialog>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+"use strict";
+const API="https://soundboard-api.atbeen.workers.dev";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const local={id:"ei-local",title:"EI!",category:"واکنش",author:"صداخونه",plays:0,local:true,created_at:"2026-01-01"};
+let sounds=[],filter="همه",query="",playing=null,adminKey="",previewUrl="";
+const favKey="soundkhuneh-favorites-v1";
+const favorites=()=>{try{return new Set(JSON.parse(localStorage.getItem(favKey)||"[]"))}catch{return new Set()}};
+function toast(s){const t=$("#toast");t.textContent=s;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2500)}
+function open(id){const d=$("#"+id);if(!d.open)d.showModal()}
+function close(id){const d=$("#"+id);if(d.open)d.close()}
+function play(url,button,id){if(playing){playing.pause();playing=null;$$(".sound-button.playing").forEach(x=>x.classList.remove("playing"))}const a=new Audio(url);playing=a;if(button)button.classList.add("playing");a.onended=()=>{if(button)button.classList.remove("playing");if(playing===a)playing=null};a.onerror=()=>{if(button)button.classList.remove("playing");toast(id==="ei-local"?"فایل EI پیدا نشد.":"پخش صدا ممکن نشد.")};a.play().then(()=>{if(id&&id!=="ei-local")fetch(API+"/api/sounds/"+encodeURIComponent(id)+"/play",{method:"POST"}).catch(()=>{})}).catch(()=>toast("پخش صدا ممکن نشد."))}
+function card(s){const el=document.createElement("article");el.className="sound";el.id="sound-"+encodeURIComponent(s.id);
+const btn=document.createElement("button");btn.className="sound-button";btn.type="button";btn.textContent=s.local?"EI!":"▶";btn.setAttribute("aria-label","پخش "+s.title);btn.onclick=()=>play(s.local?"./assets/ei.mp3":API+"/api/sounds/"+encodeURIComponent(s.id)+"/audio",btn,s.id);
+const name=document.createElement("a");name.className="sound-name";name.href="#"+el.id;name.textContent=s.title;name.title=s.title;
+const actions=document.createElement("div");actions.className="sound-actions";
+const heart=document.createElement("button");heart.className="round-action favorite";heart.type="button";heart.textContent=favorites().has(s.id)?"♥":"♡";if(favorites().has(s.id))heart.classList.add("active");heart.setAttribute("aria-label","ذخیره");heart.onclick=()=>{const f=favorites();f.has(s.id)?f.delete(s.id):f.add(s.id);localStorage.setItem(favKey,JSON.stringify([...f]));render()};
+const link=document.createElement("button");link.className="round-action share";link.type="button";link.textContent="↗";link.setAttribute("aria-label","کپی لینک");link.onclick=async()=>{const url=new URL(location.href);url.hash=el.id;try{await navigator.clipboard.writeText(url.toString());toast("لینک صدا کپی شد.")}catch{toast("کپی لینک در این مرورگر در دسترس نیست.")}};
+actions.append(heart,link);el.append(btn,name,actions);return el}
+function render(){let all=[local,...sounds];let items=filter==="علاقه‌مندی‌ها"?all.filter(s=>favorites().has(s.id)):all.filter(s=>filter==="همه"||s.category===filter);if(query)items=items.filter(s=>(s.title+" "+(s.author||"")).toLocaleLowerCase().includes(query));items.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));$("#grid").replaceChildren(...items.map(card));$("#empty").hidden=items.length>0}
+async function load(){try{const r=await fetch(API+"/api/sounds",{headers:{Accept:"application/json"}});if(!r.ok)throw Error("HTTP "+r.status);const d=await r.json();sounds=Array.isArray(d.sounds)?d.sounds:[];$("#apiStatus").textContent="";}catch(e){$("#apiStatus").textContent="اتصال به کتابخانه برقرار نشد."}render()}
+$("#openUpload").onclick=()=>open("uploadDialog");
+$("#openAdmin").onclick=()=>open("adminDialog");
+$$("[data-close]").forEach(b=>b.onclick=()=>close(b.dataset.close));
+["uploadDialog","adminDialog"].forEach(id=>$("#"+id).addEventListener("click",e=>{if(e.target===e.currentTarget)close(id)}));
+$("#theme").onclick=()=>document.body.classList.toggle("light");
+$("#filters").onclick=e=>{const b=e.target.closest("[data-filter]");if(!b)return;filter=b.dataset.filter;$$(".chip").forEach(x=>x.classList.toggle("active",x===b));render()};
+$("#search").oninput=e=>{query=e.target.value.trim().toLocaleLowerCase();render()};
+$("#file").onchange=e=>{const f=e.target.files[0];$("#fileName").textContent=f?f.name:"انتخاب فایل صوتی";if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl="";$("#preview").hidden=true;if(!f)return;if(f.size>450*1024){$("#uploadMessage").textContent="حجم فایل بیشتر از ۴۵۰ کیلوبایت است.";return}previewUrl=URL.createObjectURL(f);$("#preview").src=previewUrl;$("#preview").hidden=false};
+$("#uploadForm").onsubmit=async e=>{e.preventDefault();const f=$("#file").files[0],m=$("#uploadMessage"),b=$("#submit");m.className="message";if(!f){m.textContent="یک فایل انتخاب کن.";return}if(f.size>450*1024){m.textContent="حجم فایل بیشتر از ۴۵۰ کیلوبایت است.";return}b.disabled=true;b.textContent="در حال ارسال…";try{const r=await fetch(API+"/api/sounds",{method:"POST",body:new FormData(e.currentTarget)});const d=await r.json();if(!r.ok)throw Error(d.error||"ارسال ناموفق بود.");m.textContent=d.message||"برای بررسی ارسال شد.";e.currentTarget.reset();$("#preview").hidden=true;$("#fileName").textContent="انتخاب فایل صوتی";toast("صدا ارسال شد.")}catch(x){m.className="message error";m.textContent=x.message}finally{b.disabled=false;b.textContent="ارسال"}};
+$("#adminForm").onsubmit=async e=>{e.preventDefault();adminKey=$("#adminKey").value.trim();const m=$("#adminMessage"),box=$("#pending");m.textContent="در حال دریافت…";box.replaceChildren();try{const r=await fetch(API+"/api/admin/pending",{headers:{Authorization:"Bearer "+adminKey}});const d=await r.json();if(!r.ok)throw Error(d.error||"کلید مدیر معتبر نیست.");if(!d.sounds?.length){m.textContent="صف بررسی خالی است.";return}m.textContent="";for(const s of d.sounds){const item=document.createElement("div");item.className="pending-item";const meta=document.createElement("div");const title=document.createElement("b");title.textContent=s.title;const sub=document.createElement("small");sub.textContent=(s.author||"ناشناس")+" · "+s.category;meta.append(title,sub);const actions=document.createElement("div");actions.className="pending-actions";for(const action of ["approve","reject"]){const b=document.createElement("button");b.className=action;b.textContent=action==="approve"?"تأیید":"رد";b.onclick=async()=>{b.disabled=true;try{const res=await fetch(API+"/api/admin/sounds/"+encodeURIComponent(s.id)+"/"+action,{method:"POST",headers:{Authorization:"Bearer "+adminKey}});if(!res.ok)throw Error("عملیات ناموفق بود");item.remove();toast(action==="approve"?"صدا منتشر شد.":"صدا رد شد.");if(action==="approve")load()}catch(x){m.textContent=x.message;b.disabled=false}};actions.append(b)}item.append(meta,actions);box.append(item)}}catch(x){m.className="message error";m.textContent=x.message}};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&playing){playing.pause();playing=null;$$(".sound-button.playing").forEach(x=>x.classList.remove("playing"))}});
+load();
+})();
+</script>
+</body>
+</html>

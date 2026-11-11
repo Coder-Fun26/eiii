@@ -27,10 +27,17 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare root site
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp -R assets dist/assets
+          cp 404.html dist/404.html
+          cp robots.txt dist/robots.txt
       - name: Upload site files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
