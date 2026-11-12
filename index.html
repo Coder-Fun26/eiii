@@ -1,97 +1,261 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101522"><meta name="description" content="صداخونه؛ دکمه‌های صوتی کوتاه و بامزه.">
-<meta property="og:title" content="صداخونه | هر صدا، یک دکمه"><meta property="og:description" content="صداها رو پیدا کن، پخش کن و به اشتراک بذار.">
-<title>صداخونه — هر صدا، یک دکمه</title>
-<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:dark;--bg:#0e1420;--panel:#182334;--line:#2b3a50;--text:#f4f7fc;--muted:#98a7bc;--cyan:#68d7e6;--violet:#9b8cff;--pink:#ff6d91}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:Vazirmatn,system-ui,sans-serif;background:radial-gradient(ellipse at 8% 0%,#254b6538,transparent 32%),radial-gradient(ellipse at 92% 15%,#644b8730,transparent 30%),var(--bg)}
-button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
-.topbar{position:sticky;top:0;z-index:10;background:#0e1420df;border-bottom:1px solid #ffffff12;backdrop-filter:blur(18px)}
-.topinner{width:min(1440px,calc(100% - 40px));min-height:74px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}.brandmark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#76e2ed,#8f7cff);display:flex;align-items:center;justify-content:center;gap:3px;box-shadow:0 8px 25px #58d7e52b}.brandmark i{width:3px;border-radius:8px;background:#112031;height:12px}.brandmark i:nth-child(2){height:21px}.brandmark i:nth-child(3){height:16px}.brandmark i:nth-child(4){height:25px}.brandmark i:nth-child(5){height:10px}
-.brandcopy{display:grid;line-height:1.2}.brandcopy strong{font-size:19px;font-weight:900}.brandcopy small{font-size:9px;color:#8fa0b8;letter-spacing:2px;direction:ltr}
-.tools{display:flex;align-items:center;gap:9px}.search{height:42px;width:min(330px,34vw);display:flex;align-items:center;gap:9px;padding:0 13px;border-radius:13px;border:1px solid #ffffff19;background:#ffffff08}.search:focus-within{border-color:#68d7e688;box-shadow:0 0 0 3px #68d7e615}.search span{font-size:22px;color:var(--cyan)}.search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font-size:12px}.search input::placeholder{color:#77869b}
-.btn{border:1px solid transparent;border-radius:12px;padding:11px 16px;font-size:12px;font-weight:800;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{transform:translateY(-2px)}.primary{color:#0b1b2a;background:linear-gradient(120deg,#75e0e9,#9c91ff);box-shadow:0 8px 22px #69d9e526}.iconbtn{width:41px;height:41px;border:1px solid #ffffff18;border-radius:12px;background:#ffffff08;color:#e7eff8;font-size:19px}
-.wrap{width:min(1360px,calc(100% - 40px));margin-inline:auto}
-.intro{position:relative;overflow:hidden;margin-top:28px;padding:28px 32px;border-radius:24px;border:1px solid #ffffff17;background:linear-gradient(115deg,#1d3445e8,#24233de8 68%,#302442e8);box-shadow:0 18px 50px #0004;display:flex;justify-content:space-between;align-items:center;gap:25px}
-.intro:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-75px;top:-175px;background:#74d9e51e;filter:blur(6px)}.introcopy{position:relative;z-index:1}.eyebrow{display:flex;align-items:center;gap:8px;color:#80dbe7;font-size:9px;letter-spacing:2px;font-weight:900}.dot{width:7px;height:7px;border-radius:50%;background:#65e3ae;box-shadow:0 0 12px #65e3ae}.intro h1{margin:8px 0 4px;font-size:clamp(28px,4vw,42px);line-height:1.4;font-weight:900}.intro h1 span{color:#8fe5ed}.intro p{margin:0;color:#b3c0d0;font-size:12px}
-.introaction{position:relative;z-index:1;display:flex;align-items:center;gap:13px}.featured{width:70px;height:70px;border-radius:21px;border:1px solid #ffffff2b;background:linear-gradient(145deg,#ffffff21,#ffffff05);display:grid;place-items:center;color:#9ceaf0;font-size:29px;box-shadow:inset 0 1px #ffffff25,0 12px 25px #0003}.stat{display:grid;gap:2px;text-align:center;min-width:72px}.stat strong{font-size:22px;color:#fff;font-weight:900}.stat span{font-size:9px;color:#aabbd0}
-.board{padding:30px 0 60px}.boardhead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}.boardtitle{display:flex;align-items:center;gap:12px}.boardmark{width:38px;height:38px;border:1px solid #ffffff16;border-radius:12px;background:#ffffff09;display:grid;place-items:center;color:var(--cyan);font-size:19px}.boardtitle h2{margin:0;font-size:20px;font-weight:900}.boardtitle p{margin:2px 0 0;color:var(--muted);font-size:10px}.sort{display:flex;align-items:center;gap:8px;color:#9daec2;font-size:10px}.sort select{border:1px solid #ffffff1a;border-radius:10px;padding:8px 11px;background:#172334;color:#eaf0f8;font-size:10px;outline:0}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:23px}.chip{padding:8px 14px;border:1px solid #ffffff17;border-radius:99px;background:#ffffff07;color:#b7c3d3;font-size:10px;font-weight:700;transition:.18s}.chip:hover{border-color:#7bdce45e;color:#fff;background:#68d7e612}.chip.active{border-color:#69d9e5;background:linear-gradient(120deg,#69d9e5,#9b8cff);color:#0c1b29;box-shadow:0 5px 17px #69d9e51f}
-.grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));column-gap:13px;row-gap:24px}.sound{min-width:0;display:flex;align-items:center;flex-direction:column;text-align:center;padding:12px 5px 10px;border:1px solid transparent;border-radius:18px;transition:background .2s,border-color .2s,transform .2s}.sound:hover{background:linear-gradient(145deg,#ffffff0c,#ffffff03);border-color:#ffffff10;transform:translateY(-2px)}
-.soundbutton{position:relative;width:clamp(70px,6.5vw,92px);height:clamp(70px,6.5vw,92px);padding:0;border:0;border-radius:50%;display:grid;place-items:center;background:transparent;outline:none;transition:transform .18s,filter .18s}.soundbutton img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none;filter:drop-shadow(0 9px 7px #0007);transition:filter .18s,transform .18s}.soundbutton:hover{transform:translateY(-4px) scale(1.045)}.soundbutton:hover img{filter:drop-shadow(0 13px 10px #0009) brightness(1.08)}.soundbutton:active,.soundbutton.playing{transform:scale(.94)}.soundbutton.playing img{filter:drop-shadow(0 0 12px #8deaf3) brightness(1.15)}.soundbutton.playing:after{content:"";position:absolute;inset:-7px;border:2px solid #77e2ecb0;border-radius:50%;animation:ring 1.4s ease-out infinite;pointer-events:none}@keyframes ring{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.28);opacity:0}}.soundbutton.fallback{background:radial-gradient(circle at 35% 25%,#ffffffb0,#7a83b8 42%,#27314b 83%);border:1px solid #ffffff50;box-shadow:inset 0 3px 7px #fff8,0 8px 14px #0006;color:white;font-size:24px}
-.soundname{display:-webkit-box;width:100%;max-width:150px;min-height:37px;margin-top:7px;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#e9eff8;text-decoration:none;font-size:11px;line-height:1.75;font-weight:600;overflow-wrap:anywhere;transition:color .15s}.soundname:hover{color:#85e4ed}
-.actions{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px}.round{width:25px;height:25px;border:0;border-radius:50%;display:grid;place-items:center;color:white;font-size:14px;line-height:1;padding:0;transition:transform .15s,filter .15s}.round:hover{transform:translateY(-2px) scale(1.08);filter:brightness(1.12)}.heart{background:linear-gradient(145deg,#ff708a,#d73e64);box-shadow:0 3px 8px #ee4a7130}.heart.active{background:linear-gradient(145deg,#ff416e,#a70e40)}.share{background:linear-gradient(145deg,#48d4e3,#149bb9);box-shadow:0 3px 8px #20b6ce30;font-size:13px}
-.empty{padding:45px 15px;text-align:center;color:var(--muted);border:1px dashed #ffffff2a;border-radius:16px;background:#ffffff04;font-size:12px}.status{margin:18px 0 0;text-align:center;color:#8293a8;font-size:10px;min-height:18px}
-footer{width:min(1360px,calc(100% - 40px));margin:auto;padding:20px 0 28px;border-top:1px solid #ffffff12;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#8090a5;font-size:10px}.footerbrand{display:flex;align-items:center;gap:8px;font-weight:900;color:#c7d4e4}.footerdot{width:8px;height:8px;border-radius:50%;background:linear-gradient(145deg,#75e0e9,#9c91ff)}.admin{border:0;background:none;color:#9eacc0;font-size:10px}
-dialog{border:1px solid #3a4a60;border-radius:20px;padding:0;background:#172334;color:var(--text);width:min(480px,calc(100% - 26px));box-shadow:0 25px 90px #000b}dialog::backdrop{background:#050b13d9;backdrop-filter:blur(5px)}.modal{padding:25px}.modal h2{margin:4px 0 16px;font-size:21px}.close{float:left;width:32px;height:32px;border:0;border-radius:9px;background:#ffffff12;color:white;font-size:20px}.field{display:grid;gap:7px;margin:13px 0;font-size:11px;color:#d8e2ec}.field input,.field select{width:100%;background:#0e1825;border:1px solid #35465a;border-radius:10px;padding:11px 12px;color:white;outline:0}.field input:focus,.field select:focus{border-color:#69d9e5;box-shadow:0 0 0 3px #69d9e515}.file{display:grid;gap:8px;border:1px dashed #68d7e688;border-radius:12px;padding:15px;margin-top:12px;background:#68d7e508;font-size:11px}.file small{color:#9eb1c2;font-size:9px}.message{min-height:18px;font-size:10px;color:#80e1be}.message.error{color:#ff91a4}.modal .btn{width:100%;margin-top:8px}.pending{display:grid;gap:8px;margin-top:14px}.pendingitem{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px;border:1px solid #35465a;border-radius:10px;font-size:11px}.pendingitem small{display:block;color:#9eb1c2;font-size:9px}.pendingactions{display:flex;gap:5px}.pendingactions button{border:0;border-radius:7px;padding:6px 9px;font-size:10px}.approve{background:#17664c;color:white}.reject{background:#79334a;color:white}
-.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:#24374c;border:1px solid #526b85;border-radius:12px;padding:11px 17px;font-size:11px;transition:.22s;z-index:20;box-shadow:0 18px 50px #0005}.toast.show{opacity:1;transform:translate(-50%,0)}
-.light{color-scheme:light;--bg:#f0f3f8;--text:#172337;--muted:#64748b;background:radial-gradient(ellipse at 8% 0%,#bfeaf044,transparent 32%),radial-gradient(ellipse at 92% 15%,#d8cfff66,transparent 30%),var(--bg)}.light .topbar{background:#f0f3f8e8;border-color:#1b304014}.light .brand{color:#172337}.light .brandcopy small{color:#64748b}.light .search{background:#fff;border-color:#d2dce8}.light .search input{color:#172337}.light .intro{background:linear-gradient(115deg,#d9f4f5,#e5e0ff 70%,#f2e3f1);border-color:#d6dcec}.light .intro h1{color:#18283c}.light .intro p,.light .stat span{color:#54657b}.light .stat strong{color:#24364c}.light .featured{color:#345e78;border-color:#ffffffa0;background:#ffffff70}.light .boardtitle p,.light .sort{color:#65758a}.light .chip{color:#526178;background:#ffffffa8;border-color:#d5deea}.light .chip.active{color:#0c1b29;border-color:#69d9e5;background:linear-gradient(120deg,#69d9e5,#9b8cff)}.light .sort select{background:#fff;color:#27374c;border-color:#d5deea}.light .sound:hover{background:#fff;border-color:#e1e8f0}.light .soundname{color:#25364b}.light .soundname:hover{color:#078da6}.light .status,.light footer{color:#6e7d91}.light footer{border-color:#dbe3ec}.light .footerbrand{color:#33465e}.light .admin{color:#5b6e84}.light dialog{background:#fff;color:#172337;border-color:#d7e0ea}.light .field{color:#34475e}.light .field input,.light .field select{background:#f8fafc;color:#172337;border-color:#d5deea}.light .pendingitem{border-color:#d5deea}.light .file{border-color:#8bcbd6}
-@media(max-width:1160px){.grid{grid-template-columns:repeat(7,minmax(0,1fr))}}@media(max-width:900px){.grid{grid-template-columns:repeat(6,minmax(0,1fr))}.intro{padding:25px}.intro h1{font-size:32px}}
-@media(max-width:680px){.topinner,.wrap,footer{width:calc(100% - 26px)}.topinner{min-height:66px;gap:10px}.brandmark{width:38px;height:38px;border-radius:12px}.brandcopy strong{font-size:16px}.brandcopy small{font-size:8px}.tools{gap:7px}.search{width:min(42vw,210px);height:39px;padding:0 10px}.tools .btn{padding:9px 11px;font-size:10px}.iconbtn{width:38px;height:38px}.intro{margin-top:18px;padding:21px;border-radius:19px;gap:12px}.intro h1{font-size:27px}.intro p{font-size:10px}.introaction{gap:8px}.featured{width:53px;height:53px;border-radius:16px;font-size:22px}.stat{min-width:55px}.stat strong{font-size:18px}.stat span{font-size:8px}.board{padding-top:25px}.boardtitle h2{font-size:17px}.grid{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:5px;row-gap:18px}.sound{padding:10px 2px;border-radius:14px}.soundbutton{width:clamp(65px,15vw,82px);height:clamp(65px,15vw,82px)}.soundname{font-size:10px;min-height:35px}.round{width:24px;height:24px}.filters{gap:6px;margin-bottom:18px}.chip{padding:7px 11px;font-size:9px}}
-@media(max-width:390px){.brandcopy small{display:none}.tools .btn{font-size:0;width:37px;height:37px;padding:0}.tools .btn:before{content:"＋";font-size:16px}.search{width:39vw}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.intro{align-items:flex-start}.introaction{flex-direction:column}.stat{min-width:0}.sort{font-size:0}.sort select{font-size:9px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08020e" />
+  <title>ایییییی | شوخی صوتی</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%; height: 100%; margin: 0; overflow: hidden;
+      background: #08020e;
+    }
+
+    body {
+      display: grid; place-items: center; isolation: isolate;
+      font-family: Tahoma, system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse at 15% 18%, rgba(255, 0, 105, .13), transparent 38%),
+        radial-gradient(ellipse at 85% 82%, rgba(87, 39, 255, .17), transparent 42%),
+        #08020e;
+    }
+
+    /* قبل از شروع، تنها عنصر قابل دیدن همین دکمه است. */
+    #startButton {
+      position: fixed; z-index: 20; left: 50%; top: 50%;
+      width: 82px; height: 82px; padding: 0;
+      border: 1px solid rgba(255,255,255,.24); border-radius: 50%;
+      outline: 0; background: rgba(255,255,255,.018);
+      cursor: pointer; transform: translate(-50%, -50%);
+      -webkit-tap-highlight-color: transparent;
+      transition: opacity .45s ease, transform .45s ease, border-color .25s ease;
+    }
+    #startButton:hover {
+      border-color: rgba(255,255,255,.72);
+      transform: translate(-50%, -50%) scale(1.07);
+    }
+    #startButton:active { transform: translate(-50%, -50%) scale(.92); }
+    body.started #startButton {
+      opacity: 0; pointer-events: none;
+      transform: translate(-50%, -50%) scale(2.4);
+    }
+
+    #prankFx {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      overflow: hidden; opacity: 0; transition: opacity .25s ease;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.025) 4px 5px),
+        radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,.58) 100%);
+    }
+    #prankFx::before, #prankFx::after {
+      content: ""; position: absolute; inset: -40%; opacity: 0;
+      mix-blend-mode: screen; pointer-events: none;
+    }
+    #prankFx::before {
+      background: conic-gradient(from 0deg, transparent, rgba(255,0,100,.25), transparent 28%, rgba(65,30,255,.25), transparent 65%, rgba(0,230,255,.13), transparent);
+      animation: spin 7s linear infinite;
+    }
+    #prankFx::after {
+      background: radial-gradient(circle at center, rgba(255,0,130,.16), transparent 65%);
+      animation: pulse .8s ease-in-out infinite alternate;
+    }
+    body.started #prankFx, body.started #prankFx::before,
+    body.started #prankFx::after { opacity: 1; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { from { transform: scale(.75); } to { transform: scale(1.3); } }
+
+    .floating-text {
+      position: fixed; z-index: 5; left: 0; top: 0;
+      color: hsl(var(--hue), 100%, 72%);
+      font: 1000 var(--size, 46px)/1 Tahoma, system-ui, sans-serif;
+      white-space: nowrap; pointer-events: none; user-select: none;
+      text-shadow:
+        3px 3px 0 rgba(255,0,90,.72),
+        -3px -2px 0 rgba(40,95,255,.76),
+        0 0 16px currentColor, 0 0 34px currentColor;
+      will-change: transform, opacity;
+      animation: fly var(--duration, 2.5s) cubic-bezier(.12,.72,.18,1) forwards;
+    }
+    .floating-text.glitch {
+      z-index: 6; filter: blur(.35px);
+      animation-name: flyGlitch;
+    }
+    @keyframes fly {
+      0% { opacity: 0; transform: translate3d(var(--x0), var(--y0), 0) rotate(var(--r0)) scale(.25); filter: blur(9px); }
+      12% { opacity: 1; filter: blur(0); }
+      76% { opacity: 1; }
+      100% { opacity: 0; transform: translate3d(var(--x1), var(--y1), 0) rotate(var(--r1)) scale(var(--scale)); filter: blur(3px); }
+    }
+    @keyframes flyGlitch {
+      0% { opacity: 0; transform: translate3d(var(--x0), var(--y0), 0) rotate(var(--r0)) scale(.15) skew(-18deg); filter: blur(12px); }
+      15% { opacity: 1; filter: blur(0); }
+      50% { transform: translate3d(calc(var(--x1) * .48), calc(var(--y1) * .48), 0) rotate(var(--r1)) scale(1.15) skew(8deg); }
+      100% { opacity: 0; transform: translate3d(var(--x1), var(--y1), 0) rotate(var(--r1)) scale(var(--scale)) skew(-5deg); filter: blur(4px); }
+    }
+
+    body.bump { animation: bump .16s linear; }
+    @keyframes bump {
+      0%, 100% { translate: 0 0; }
+      25% { translate: 3px -2px; }
+      50% { translate: -3px 2px; }
+      75% { translate: 2px 2px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #prankFx::before, #prankFx::after { animation-duration: 2s; }
+    }
+  </style>
 </head>
 <body>
-<header class="topbar"><div class="topinner">
-<a class="brand" href="#top" aria-label="صداخونه"><span class="brandmark"><i></i><i></i><i></i><i></i><i></i></span><span class="brandcopy"><strong>صداخونه</strong><small>SOUND BUTTONS</small></span></a>
-<div class="tools"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="دنبال چه صدایی می‌گردی؟" aria-label="جست‌وجوی صدا"></label><button class="iconbtn" id="theme" title="تغییر پوسته" aria-label="تغییر پوسته">◐</button><button class="btn primary" id="openUpload">＋ افزودن صدا</button></div>
-</div></header>
-<main class="wrap" id="top">
-<section class="intro"><div class="introcopy"><div class="eyebrow"><i class="dot"></i> SOUNDKHUNEH • PLAY SOMETHING</div><h1>هر صدا، <span>یه دکمه!</span></h1><p>بزن، گوش کن، بفرست برای بقیه.</p></div><div class="introaction"><button class="featured" id="playFeatured" aria-label="پخش صدای ویژه">♫</button><div class="stat"><strong id="soundCount">۱</strong><span>دکمهٔ صدا</span></div></div></section>
-<section class="board" id="sounds"><div class="boardhead"><div class="boardtitle"><span class="boardmark">▦</span><div><h2>گالری صداها</h2><p id="resultsSubtitle">همهٔ دکمه‌ها در یک جا</p></div></div><label class="sort">مرتب‌سازی<select id="sort"><option value="new">تازه‌تر</option><option value="popular">محبوب‌تر</option><option value="az">الفبایی</option></select></label></div>
-<div class="filters" id="filters"><button class="chip active" data-filter="همه">همه</button><button class="chip" data-filter="میم">😂 میم</button><button class="chip" data-filter="بازی">🎮 بازی</button><button class="chip" data-filter="واکنش">😮 واکنش</button><button class="chip" data-filter="حیوانات">🐸 حیوانات</button><button class="chip" data-filter="دیگر">✨ متفرقه</button><button class="chip" data-filter="علاقه‌مندی‌ها">♥ ذخیره‌شده‌ها</button></div>
-<div class="grid" id="grid" aria-live="polite"></div><div class="empty" id="empty" hidden>هیچ صدایی پیدا نشد.</div><p class="status" id="apiStatus">در حال اتصال به کتابخانهٔ صداها…</p></section>
-</main>
-<footer><span class="footerbrand"><i class="footerdot"></i> صداخونه</span><span>یک کلیک تا صدا 🎧</span><button class="admin" id="openAdmin">مدیریت محتوا</button></footer>
-<dialog id="uploadDialog"><form class="modal" id="uploadForm"><button class="close" type="button" data-close="uploadDialog">×</button><h2>افزودن صدای تازه 🎧</h2>
-<label class="field">اسم صدا<input name="title" maxlength="42" required placeholder="یک اسم کوتاه و بامزه"></label><label class="field">نام سازنده<input name="author" maxlength="22" placeholder="ناشناس"></label><label class="field">دسته‌بندی<select name="category"><option>میم</option><option>بازی</option><option>واکنش</option><option>حیوانات</option><option>دیگر</option></select></label>
-<label class="file"><b id="fileName">انتخاب فایل صوتی</b><small>MP3 · WAV · OGG · WEBM · M4A · حداکثر ۴۵۰ کیلوبایت</small><input id="file" name="file" type="file" accept="audio/*,.mp3,.wav,.ogg,.webm,.m4a,.aac" required></label><audio id="preview" controls hidden style="width:100%;margin-top:10px"></audio><p class="message" id="uploadMessage" role="status"></p><button class="btn primary" type="submit" id="submit">ارسال صدا برای بررسی</button></form></dialog>
-<dialog id="adminDialog"><div class="modal"><button class="close" data-close="adminDialog">×</button><h2>مدیریت محتوا</h2><form id="adminForm"><label class="field">کلید مدیر<input id="adminKey" type="password" autocomplete="off" required></label><button class="btn primary" type="submit">ورود به صف بررسی</button></form><p class="message" id="adminMessage"></p><div class="pending" id="pending"></div></div></dialog>
-<div class="toast" id="toast"></div>
-<script>
-(()=>{"use strict";
-const API="https://soundboard-api.atbeen.workers.dev", $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const local={id:"ei-local",title:"EI!",category:"واکنش",author:"صداخونه",plays:0,local:true,created_at:"2026-01-01"};
-const colors=["red","blue","green","orange","purple"],categoryColors={"میم":"red","بازی":"blue","واکنش":"purple","حیوانات":"green","دیگر":"orange"};
-let sounds=[],filter="همه",query="",sort="new",playing=null,adminKey="",previewUrl="";
-const favKey="soundkhuneh-favorites-v1";
-const favorites=()=>{try{return new Set(JSON.parse(localStorage.getItem(favKey)||"[]"))}catch{return new Set()}};
-const number=n=>new Intl.NumberFormat("fa-IR").format(Number(n||0));
-function toast(s){const t=$("#toast");t.textContent=s;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600)}
-function open(id){const d=$("#"+id);if(!d.open)d.showModal()}function close(id){const d=$("#"+id);if(d.open)d.close()}
-function soundColor(s,i){return categoryColors[s.category]||colors[i%colors.length]}
-function play(url,button,id){if(playing){playing.pause();playing=null;$$(".soundbutton.playing").forEach(x=>x.classList.remove("playing"));$("#playFeatured").classList.remove("playing")}
-const a=new Audio(url);playing=a;if(button)button.classList.add("playing");a.onended=()=>{if(button)button.classList.remove("playing");if(playing===a)playing=null};a.onerror=()=>{if(button)button.classList.remove("playing");toast(id==="ei-local"?"فایل EI پیدا نشد.":"پخش صدا ممکن نشد.")};a.play().then(()=>{if(id&&id!=="ei-local")fetch(API+"/api/sounds/"+encodeURIComponent(id)+"/play",{method:"POST"}).catch(()=>{})}).catch(()=>toast("پخش صدا ممکن نشد."))}
-function card(s,i){const el=document.createElement("article");el.className="sound";el.id="sound-"+encodeURIComponent(s.id);
-const btn=document.createElement("button");btn.className="soundbutton";btn.type="button";btn.setAttribute("aria-label","پخش "+s.title);btn.title="پخش "+s.title;
-const img=document.createElement("img");img.src="./assets/buttons/"+soundColor(s,i)+".png";img.alt="";img.loading="lazy";img.decoding="async";img.draggable=false;img.onerror=()=>{img.remove();btn.classList.add("fallback");btn.textContent="♫"};btn.append(img);
-btn.onclick=()=>play(s.local?"./assets/ei.mp3":API+"/api/sounds/"+encodeURIComponent(s.id)+"/audio",btn,s.id);
-const name=document.createElement("a");name.className="soundname";name.href="#"+el.id;name.textContent=s.title;name.title=s.title;
-const actions=document.createElement("div");actions.className="actions";
-const heart=document.createElement("button");heart.className="round heart";heart.type="button";heart.textContent=favorites().has(s.id)?"♥":"♡";if(favorites().has(s.id))heart.classList.add("active");heart.setAttribute("aria-label","ذخیره در علاقه‌مندی‌ها");heart.onclick=()=>{const f=favorites();f.has(s.id)?f.delete(s.id):f.add(s.id);localStorage.setItem(favKey,JSON.stringify([...f]));render()};
-const link=document.createElement("button");link.className="round share";link.type="button";link.textContent="↗";link.setAttribute("aria-label","کپی لینک صدا");link.onclick=async()=>{const url=new URL(location.href);url.hash=el.id;try{await navigator.clipboard.writeText(url.toString());toast("لینک صدا کپی شد.")}catch{toast("کپی لینک در این مرورگر در دسترس نیست.")}};
-actions.append(heart,link);el.append(btn,name,actions);return el}
-function render(){let all=[local,...sounds],items=filter==="علاقه‌مندی‌ها"?all.filter(s=>favorites().has(s.id)):all.filter(s=>filter==="همه"||s.category===filter);if(query)items=items.filter(s=>(s.title+" "+(s.author||"")).toLocaleLowerCase().includes(query));
-if(sort==="popular")items.sort((a,b)=>Number(b.plays||0)-Number(a.plays||0));else if(sort==="az")items.sort((a,b)=>a.title.localeCompare(b.title,"fa"));else items.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
-$("#grid").replaceChildren(...items.map((s,i)=>card(s,i)));$("#empty").hidden=items.length>0;$("#soundCount").textContent=number(sounds.length+1);$("#resultsSubtitle").textContent=number(items.length)+" دکمه در این بخش"}
-async function load(){try{const r=await fetch(API+"/api/sounds",{headers:{Accept:"application/json"}});if(!r.ok)throw Error("HTTP "+r.status);const d=await r.json();sounds=Array.isArray(d.sounds)?d.sounds:[];$("#apiStatus").textContent=""}catch(e){$("#apiStatus").textContent="اتصال به کتابخانه برقرار نشد؛ صدای ویژه همچنان در دسترس است."}render()}
-$("#playFeatured").onclick=()=>play("./assets/ei.mp3",$("#playFeatured"),"ei-local");$("#openUpload").onclick=()=>open("uploadDialog");$("#openAdmin").onclick=()=>open("adminDialog");
-$$("[data-close]").forEach(b=>b.onclick=()=>close(b.dataset.close));["uploadDialog","adminDialog"].forEach(id=>$("#"+id).addEventListener("click",e=>{if(e.target===e.currentTarget)close(id)}));
-$("#theme").onclick=()=>document.body.classList.toggle("light");$("#filters").onclick=e=>{const b=e.target.closest("[data-filter]");if(!b)return;filter=b.dataset.filter;$$(".chip").forEach(x=>x.classList.toggle("active",x===b));render()};
-$("#search").oninput=e=>{query=e.target.value.trim().toLocaleLowerCase();render()};$("#sort").onchange=e=>{sort=e.target.value;render()};
-$("#file").onchange=e=>{const f=e.target.files[0];$("#fileName").textContent=f?f.name:"انتخاب فایل صوتی";if(previewUrl)URL.revokeObjectURL(previewUrl);previewUrl="";$("#preview").hidden=true;if(!f)return;if(f.size>450*1024){$("#uploadMessage").textContent="حجم فایل بیشتر از ۴۵۰ کیلوبایت است.";return}previewUrl=URL.createObjectURL(f);$("#preview").src=previewUrl;$("#preview").hidden=false};
-$("#uploadForm").onsubmit=async e=>{e.preventDefault();const f=$("#file").files[0],m=$("#uploadMessage"),b=$("#submit");m.className="message";m.textContent="";if(!f){m.textContent="یک فایل انتخاب کن.";return}if(f.size>450*1024){m.textContent="حجم فایل بیشتر از ۴۵۰ کیلوبایت است.";return}b.disabled=true;b.textContent="در حال ارسال…";try{const r=await fetch(API+"/api/sounds",{method:"POST",body:new FormData(e.currentTarget)}),d=await r.json();if(!r.ok)throw Error(d.error||"ارسال ناموفق بود.");m.textContent=d.message||"صدات برای بررسی ارسال شد.";e.currentTarget.reset();$("#preview").hidden=true;$("#fileName").textContent="انتخاب فایل صوتی";toast("صدا ارسال شد؛ بعد از تأیید منتشر می‌شود.")}catch(x){m.className="message error";m.textContent=x.message}finally{b.disabled=false;b.textContent="ارسال صدا برای بررسی"}};
-$("#adminForm").onsubmit=async e=>{e.preventDefault();adminKey=$("#adminKey").value.trim();const m=$("#adminMessage"),box=$("#pending");m.textContent="در حال دریافت…";box.replaceChildren();try{const r=await fetch(API+"/api/admin/pending",{headers:{Authorization:"Bearer "+adminKey}}),d=await r.json();if(!r.ok)throw Error(d.error||"کلید مدیر معتبر نیست.");if(!d.sounds?.length){m.textContent="صف بررسی خالی است.";return}m.textContent="";for(const s of d.sounds){const item=document.createElement("div");item.className="pendingitem";const meta=document.createElement("div"),title=document.createElement("b"),sub=document.createElement("small");title.textContent=s.title;sub.textContent=(s.author||"ناشناس")+" · "+s.category;meta.append(title,sub);const actions=document.createElement("div");actions.className="pendingactions";for(const action of ["approve","reject"]){const b=document.createElement("button");b.className=action;b.textContent=action==="approve"?"تأیید":"رد";b.onclick=async()=>{b.disabled=true;try{const res=await fetch(API+"/api/admin/sounds/"+encodeURIComponent(s.id)+"/"+action,{method:"POST",headers:{Authorization:"Bearer "+adminKey}});if(!res.ok)throw Error("عملیات ناموفق بود");item.remove();toast(action==="approve"?"صدا منتشر شد.":"صدا رد شد.");if(action==="approve")load()}catch(x){m.textContent=x.message;b.disabled=false}};actions.append(b)}item.append(meta,actions);box.append(item)}}catch(x){m.className="message error";m.textContent=x.message}};
-document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k")$("#search").focus();if(e.key==="Escape"&&playing){playing.pause();playing=null;$$(".soundbutton.playing").forEach(x=>x.classList.remove("playing"));$("#playFeatured").classList.remove("playing")}});
-load();
-})();
-</script>
+  <button id="startButton" type="button" aria-label="شروع"></button>
+  <div id="prankFx" aria-hidden="true"></div>
+
+  <script>
+    // همه فایل‌های صوتی باید کنار index.html باشند.
+    // نام فایل‌ها با حروف بزرگ/کوچک دقیقاً مطابق این فهرست باشد.
+    const SOUND_FILES = [
+      "./ei.mp3",
+      "./S1.mp3",
+      "./S2.mp3",
+      "./S3.mp3",
+      "./S4.mp3",
+      "./S5.mp3",
+      "./S6.mp3"
+    ];
+    const TEXT = "اییییییی";
+    const button = document.getElementById("startButton");
+
+    let started = false;
+    let activeAudios = [];
+    let spawnTimer = null;
+    let bumpTimer = null;
+
+    const random = (min, max) => Math.random() * (max - min) + min;
+
+    function makeText() {
+      const node = document.createElement("div");
+      node.className = Math.random() < .28 ? "floating-text glitch" : "floating-text";
+      node.textContent = TEXT;
+
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const edge = 150;
+      const side = Math.floor(Math.random() * 4);
+      let x, y, endX, endY;
+
+      if (side === 0) {
+        x = -edge; y = random(0, h); endX = random(w * .12, w * .88); endY = random(0, h);
+      } else if (side === 1) {
+        x = w + edge; y = random(0, h); endX = random(w * .12, w * .88); endY = random(0, h);
+      } else if (side === 2) {
+        x = random(0, w); y = -edge; endX = random(0, w); endY = random(h * .12, h * .88);
+      } else {
+        x = random(0, w); y = h + edge; endX = random(0, w); endY = random(h * .12, h * .88);
+      }
+
+      const duration = random(1.8, 3.8);
+      node.style.left = x + "px";
+      node.style.top = y + "px";
+      node.style.setProperty("--x0", "0px");
+      node.style.setProperty("--y0", "0px");
+      node.style.setProperty("--x1", (endX - x) + "px");
+      node.style.setProperty("--y1", (endY - y) + "px");
+      node.style.setProperty("--r0", random(-35, 35) + "deg");
+      node.style.setProperty("--r1", random(-50, 50) + "deg");
+      node.style.setProperty("--scale", random(.65, 1.7));
+      node.style.setProperty("--duration", duration + "s");
+      node.style.setProperty("--size", random(28, 76) + "px");
+      node.style.setProperty("--hue", Math.floor(random(0, 360)));
+
+      document.body.appendChild(node);
+      window.setTimeout(() => node.remove(), duration * 1000 + 100);
+    }
+
+    function bumpScreen() {
+      document.body.classList.remove("bump");
+      void document.body.offsetWidth;
+      document.body.classList.add("bump");
+      clearTimeout(bumpTimer);
+      bumpTimer = window.setTimeout(() => document.body.classList.remove("bump"), 180);
+    }
+
+    function playSound(file) {
+      // سقف صداهای هم‌زمان برای حفظ روان بودن مرورگر؛ قدیمی‌ترین نمونه جایش را به جدید می‌دهد.
+      if (activeAudios.length >= 22) {
+        const oldest = activeAudios.shift();
+        oldest.pause();
+        oldest.src = "";
+      }
+
+      const audio = new Audio(file);
+      audio.preload = "auto";
+      audio.volume = random(.07, .15);
+
+      // فقط ei و S1 تا S3 افکت تغییر سرعت و زیر و بمی می‌گیرند.
+      // فایل‌های S4 تا S6 کاملاً با سرعت و زیر و بمی اصلی پخش می‌شوند.
+      const keepOriginalSound = /^\.\/S[4-6]\.mp3$/i.test(file);
+      if (keepOriginalSound) {
+        audio.playbackRate = 1;
+        audio.preservesPitch = true;
+        audio.mozPreservesPitch = true;
+        audio.webkitPreservesPitch = true;
+      } else {
+        const rates = [.48, .58, .72, .84, 1, 1.18, 1.38, 1.65, 1.95, 2.3, 2.65];
+        audio.playbackRate = rates[Math.floor(Math.random() * rates.length)];
+        audio.preservesPitch = false;
+        audio.mozPreservesPitch = false;
+        audio.webkitPreservesPitch = false;
+      }
+
+      activeAudios.push(audio);
+      audio.addEventListener("ended", () => {
+        activeAudios = activeAudios.filter(item => item !== audio);
+        audio.src = "";
+      }, { once: true });
+      audio.addEventListener("error", () => {
+        activeAudios = activeAudios.filter(item => item !== audio);
+      }, { once: true });
+
+      // متن دقیقاً در همان نوبتی ساخته می‌شود که نمونه‌ی صوتی شروع می‌شود.
+      makeText();
+      if (Math.random() < .36) makeText();
+      bumpScreen();
+
+      audio.play().catch(() => {
+        // اگر فایل ei.mp3 کنار index.html نباشد، افکت‌های تصویری همچنان اجرا می‌شوند.
+      });
+    }
+
+    let previousFile = "";
+    function chooseSound() {
+      // صداها تصادفی انتخاب می‌شوند و تا حد ممکن دو بار پشت سر هم تکرار نمی‌شوند.
+      const choices = SOUND_FILES.filter(file => file !== previousFile);
+      const file = choices[Math.floor(Math.random() * choices.length)];
+      previousFile = file;
+      return file;
+    }
+
+    function scheduleNextSound() {
+      // فاصله‌ی نامنظم و کوتاه، حس تکرار شلوغ و روی‌هم‌افتاده ایجاد می‌کند.
+      const delay = random(65, 135);
+      spawnTimer = window.setTimeout(() => {
+        playSound(chooseSound());
+        scheduleNextSound();
+      }, delay);
+    }
+
+    button.addEventListener("click", () => {
+      if (started) return;
+      started = true;
+      document.body.classList.add("started");
+      // شروع با ei.mp3؛ بعد از آن S1 تا S6 و ei.mp3 به شکل تصادفی می‌آیند.
+      previousFile = "./ei.mp3";
+      playSound("./ei.mp3");
+      scheduleNextSound();
+    }, { once: true });
+  </script>
 </body>
 </html>

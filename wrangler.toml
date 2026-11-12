@@ -1,9 +1,0 @@
-name = "soundboard-api"
-main = "worker/src/index.js"
-compatibility_date = "2026-11-10"
-workers_dev = true
-
-[[d1_databases]]
-binding = "DB"
-database_name = "soundboard_db"
-database_id = "86056397-63e7-4c54-bfe1-b158fc506e8d"
